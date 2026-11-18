@@ -5,35 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Worth It? with Tock</title>
 <meta name="description" content="Worth It? turns any price into hours of your own work time, so you can decide what's worth it. No account, no tracking.">
+<meta name="theme-color" content="#fff6ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1f1626" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Worth It? with Tock">
+<meta property="og:description" content="See any price in hours of your work. Then decide.">
+<meta property="og:image" content="https://iamvaibhavkhatri.github.io/worthit-app/assets/social.png">
+<meta property="og:url" content="https://iamvaibhavkhatri.github.io/worthit-app/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <a class="brand" href="./">Worth It?</a>
+    <a class="brand" href="./"><img src="assets/tock.png" alt="">Worth It<span class="q">?</span></a>
     <a href="support/">Support</a>
     <a href="privacy/">Privacy</a>
     <a href="terms/">Terms</a>
   </nav>
 
-  <h1>How many hours is that, really?</h1>
-  <p class="lede">Worth It? turns any price into hours of your own work time. Skip it and keep the hours, or buy it. Your call. Tock, a little clock, keeps you company.</p>
+  <section class="hero">
+    <div>
+      <h1>How many hours is that, really?</h1>
+      <p class="lede">Worth It? turns any price into hours of your own work time. Skip it and keep the hours, or buy it. Your call. Tock keeps you company either way.</p>
+      <span class="soon">Coming soon to iPhone</span>
+    </div>
+    <img class="tock" src="assets/tock.png" alt="Tock, a friendly orange clock with a smile" width="210" height="210">
+  </section>
+
+  <section class="card try" aria-labelledby="try-title">
+    <h2 id="try-title">Try it</h2>
+    <div class="fields">
+      <label for="price">Price
+        <span class="money"><span>$</span><input id="price" inputmode="decimal" autocomplete="off" value="140"></span>
+      </label>
+      <label for="wage">Your pay per hour
+        <span class="money"><span>$</span><input id="wage" inputmode="decimal" autocomplete="off" value="25"></span>
+      </label>
+    </div>
+    <div class="result" aria-live="polite"><strong id="hours">5h 36m</strong><span>of your work</span></div>
+    <p class="hint">Nothing you type here leaves this page. The app does the same on your iPhone, with your real pay, salary or hourly.</p>
+  </section>
 
   <ul class="points">
     <li><strong>See prices in work hours</strong>Type a price and see what it costs in your own time.</li>
-    <li><strong>Skip it, keep the hours</strong>Every skip adds to your hours kept. Buying is fine too.</li>
+    <li class="kept"><strong>Skip it, keep the hours</strong>Every skip adds to your hours kept. Buying is fine too.</li>
     <li><strong>Save hours toward a goal</strong>Put the hours you keep toward something you really want.</li>
     <li><strong>Private by design</strong>No account, no bank login, no tracking. Your data stays on your iPhone.</li>
   </ul>
 
-  <p>Worth It? is coming soon to the App Store for iPhone.</p>
-
   <footer>
-    <span>Worth It? with Tock</span>
+    <span class="sig"><img src="assets/tock.png" alt="">Worth It? with Tock</span>
     <a href="support/">Support</a>
     <a href="privacy/">Privacy Policy</a>
     <a href="terms/">Terms of Use</a>
+    <a href="press/">Press Kit</a>
   </footer>
 </div>
+<script>
+(function () {
+  var price = document.getElementById("price");
+  var wage = document.getElementById("wage");
+  var out = document.getElementById("hours");
+  function num(el) { return parseFloat(String(el.value).replace(/[^0-9.]/g, "")); }
+  function update() {
+    var p = num(price), w = num(wage);
+    if (!(p > 0) || !(w > 0)) { out.textContent = "–"; return; }
+    var mins = Math.round(p / w * 60);
+    var h = Math.floor(mins / 60), m = mins % 60;
+    out.textContent = h === 0 ? m + "m" : (m === 0 ? h + "h" : h + "h " + m + "m");
+  }
+  price.addEventListener("input", update);
+  wage.addEventListener("input", update);
+  update();
+})();
+</script>
 </body>
 </html>
