@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Worth It? with Tock</title>
-<meta name="description" content="Worth It? turns any price into hours of your own work time, so you can decide what's worth it. No account, no tracking.">
+<meta name="description" content="Worth It? helps you pause before you buy. See any price in hours of your own work, skip what isn't worth it, and watch the hours you keep add up. No account, no tracking.">
 <meta name="theme-color" content="#fff6ea" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1f1626" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -27,33 +27,67 @@
 
   <section class="hero">
     <div>
-      <h1>How many hours is that, really?</h1>
-      <p class="lede">Worth It? turns any price into hours of your own work time. Skip it and keep the hours, or buy it. Your call. Tock keeps you company either way.</p>
+      <h1>A pause before you buy.</h1>
+      <p class="lede">Worth It? shows any price in hours of your own work, so you can decide what's really worth it. Skip it and keep the hours, or buy it. Your call.</p>
       <span class="soon">Coming soon to iPhone</span>
     </div>
     <img class="tock" src="assets/tock.png" alt="Tock, a friendly orange clock with a smile" width="210" height="210">
   </section>
 
-  <section class="card try" aria-labelledby="try-title">
-    <h2 id="try-title">Try it</h2>
-    <div class="fields">
-      <label for="price">Price
-        <span class="money"><span>$</span><input id="price" inputmode="decimal" autocomplete="off" value="140"></span>
-      </label>
-      <label for="wage">Your pay per hour
-        <span class="money"><span>$</span><input id="wage" inputmode="decimal" autocomplete="off" value="25"></span>
-      </label>
-    </div>
-    <div class="result" aria-live="polite"><strong id="hours">5h 36m</strong><span>of your work</span></div>
-    <p class="hint">Nothing you type here leaves this page. The app does the same on your iPhone, with your real pay, salary or hourly.</p>
+  <section>
+    <h2>The problem</h2>
+    <p>Most impulse buys happen in a few seconds: a late-night scroll, a countdown timer, "only 3 left". Prices on a screen feel small, and the "was it worth it?" only comes days later.</p>
+    <p>Budget apps ask for bank logins, categories and spreadsheets. Most people don't need more admin. They need a moment to think, in a number that means something to them.</p>
   </section>
 
-  <ul class="points">
-    <li><strong>See prices in work hours</strong>Type a price and see what it costs in your own time.</li>
-    <li class="kept"><strong>Skip it, keep the hours</strong>Every skip adds to your hours kept. Buying is fine too.</li>
-    <li><strong>Save hours toward a goal</strong>Put the hours you keep toward something you really want.</li>
-    <li><strong>Private by design</strong>No account, no bank login, no tracking. Your data stays on your iPhone.</li>
-  </ul>
+  <section>
+    <h2>How Worth It? helps</h2>
+    <ol class="steps">
+      <li><strong>Check the price</strong>See it as time: hours and minutes of your own work.</li>
+      <li><strong>Decide</strong>Skip it or buy it. There's no wrong answer, and Tock never judges.</li>
+      <li><strong>Keep the hours</strong>Every skip adds to your hours kept and moves your goals closer.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Meet Tock</h2>
+    <p>Tock is a little clock who keeps you company. Tock reacts to every check, celebrates your skips, is happy for you when you buy something you love, and shape-shifts into a balloon, a rocket or a trophy when you reach a milestone. Calm, warm and a bit silly. Never a lecture.</p>
+  </section>
+
+  <section>
+    <h2>Free, and staying free</h2>
+    <ul class="points">
+      <li><strong>Prices in work hours</strong>See anything in your own work time, from your hourly pay or salary.</li>
+      <li class="kept"><strong>Skip or Buy</strong>Log your choice in a tap. Your hours kept grow with every skip.</li>
+      <li><strong>Milestones</strong>Tock celebrates your first skip, your first hour kept, and every big number after.</li>
+      <li><strong>A goal</strong>Save your kept hours toward something you really want.</li>
+      <li><strong>Stats</strong>Your week and month at a glance: hours kept, skips and buys.</li>
+      <li><strong>Home Screen widget</strong>Your hours kept, one glance away.</li>
+      <li><strong>Share cards</strong>Share a milestone or your week as a card.</li>
+      <li><strong>Private by design</strong>No account, no bank login, no tracking. Your data stays on your iPhone.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Worth It? Pro</h2>
+    <p>Optional, yearly or one-time, for more of what you like:</p>
+    <ul class="points">
+      <li><strong>Goals, as many as you like</strong>With cover photos, a Lock Screen ring and your goal history.</li>
+      <li><strong>More widgets</strong>A medium widget plus Lock Screen widgets.</li>
+      <li><strong>Themes and app icons</strong>Every colour theme with its matching icon, living nature scenes included.</li>
+      <li><strong>Outfits for Tock</strong>A party hat, sunnies, a cowboy hat, a cosy scarf and more.</li>
+      <li><strong>More share card styles</strong>With no watermark.</li>
+      <li><strong>Export your history</strong>Your data as a CSV file.</li>
+    </ul>
+  </section>
+
+  <section class="card closing">
+    <img src="assets/tock.png" alt="" width="72" height="72">
+    <div>
+      <h2>Coming soon to the App Store</h2>
+      <p>For iPhone, iOS 18 or later. Questions or ideas? <a href="support/">Get in touch</a>.</p>
+    </div>
+  </section>
 
   <footer>
     <span class="sig"><img src="assets/tock.png" alt="">Worth It? with Tock</span>
@@ -63,23 +97,5 @@
     <a href="press/">Press Kit</a>
   </footer>
 </div>
-<script>
-(function () {
-  var price = document.getElementById("price");
-  var wage = document.getElementById("wage");
-  var out = document.getElementById("hours");
-  function num(el) { return parseFloat(String(el.value).replace(/[^0-9.]/g, "")); }
-  function update() {
-    var p = num(price), w = num(wage);
-    if (!(p > 0) || !(w > 0)) { out.textContent = "–"; return; }
-    var mins = Math.round(p / w * 60);
-    var h = Math.floor(mins / 60), m = mins % 60;
-    out.textContent = h === 0 ? m + "m" : (m === 0 ? h + "h" : h + "h " + m + "m");
-  }
-  price.addEventListener("input", update);
-  wage.addEventListener("input", update);
-  update();
-})();
-</script>
 </body>
 </html>
