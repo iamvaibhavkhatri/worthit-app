@@ -79,7 +79,9 @@ p, li { max-width: 65ch; }
 .hero .tock { width: 100%; height: auto; max-width: 210px; justify-self: center; animation: bob 3.2s ease-in-out infinite; filter: drop-shadow(0 18px 14px rgba(59, 31, 74, 0.16)); }
 @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
 @media (prefers-reduced-motion: reduce) { .hero .tock { animation: none; } }
-.soon { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--bg); font: 700 14px/1 var(--round); }
+.store { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font: 700 15px/1 var(--round); text-decoration: none; }
+.store:hover { opacity: 0.88; }
+.store:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 @media (max-width: 560px) {
   .hero { grid-template-columns: 1fr; }
   .hero .tock { order: -1; max-width: 150px; }
